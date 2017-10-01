@@ -1,0 +1,101 @@
+spring:
+  mail:
+       host: smtp.gmail.com
+       port: 587
+       username: tech.shankar12@gmail.com      
+       password: papa@mama123
+       properties.mail.smtp:
+                 auth: true
+                 starttls.enable: true
+  profiles:
+    active: dev
+  output:
+    ansi:
+        enabled: DETECT
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+security:
+  basic:
+    enabled: false
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/air
+    username: air_app_user
+    password: air_app_user
+
+server:
+  port: 9009
+  
+logging:
+  # pattern:
+    #   console: "%d %-5level %logger : %msg%n"
+     #  file: "%d %-5level [%thread] %logger : %msg%n"
+   file: var/air/logs/air.log
+   level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.air: INFO
+    org.hibernate: ERROR
+air:
+  app:
+    name: var/air/logs/air.log
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/air
+    username: air_app_user
+    password: air_app_user
+
+server:
+  port: 9010
+  
+logging:
+  # pattern:
+    #   console: "%d %-5level %logger : %msg%n"
+     #  file: "%d %-5level [%thread] %logger : %msg%n"
+   file: var/air/logs/air.log
+   level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.air: INFO
+    org.hibernate: ERROR
+air:
+  app:
+    name: security
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/air
+    username: air_app_user
+    password: air_app_user
+
+server:
+  port: 9011
+  
+logging:
+  # pattern:
+    #   console: "%d %-5level %logger : %msg%n"
+     #  file: "%d %-5level [%thread] %logger : %msg%n"
+   file: var/air/logs/air.log
+   level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.air: INFO
+    org.hibernate: ERROR
+air:
+  app:
+    name: var/air/logs/air.log
+    
+
+
+ 

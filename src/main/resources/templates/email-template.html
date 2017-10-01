@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all">Template for HTML email with inline image</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p>
+     <span th:text="${to}"></span>
+    </p>
+    <p>
+      You have been successfully subscribed to the <b><span th:text="${name}"></span></b> on
+      <span th:text="${#dates.format(subscriptionDate)}"></span>
+    </p>
+    <p>Your hobbies are:</p>
+    <ul>
+      <li th:each="hobby : ${hobbies}" th:text="${hobby}"></li>
+    </ul>
+    <p>
+    </p>
+    <p>
+      Regards, <br />
+      <em><span th:text="${senderName}"></span></em>
+    </p>
+  </body>
+</html>
